@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Employee</title>
+    <link rel="stylesheet" href="AddEmployeeStyle.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <!-- Sidebar Navigation -->
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="index.html">
+                    <span class="icon"><span class="material-icons">dashboard</span></span>
+                    <span class="title">Dashboard</span>
+                </a>
+            </li>
+            <li><a href="sales.html"><span class="icon"><span class="material-icons">shopping_cart</span></span><span class="title">Sales</span></a></li>
+          <li><a href="inventory.html"><span class="icon"><span class="material-icons">inventory</span></span><span class="title">Inventory</span></a></li>
+          <li><a href="attendance.html"><span class="icon"><span class="material-icons">event</span></span><span class="title">Attendance</span></a></li>
+          <li><a href="employee_attendance.html"><span class="icon"><span class="material-icons">schedule</span></span><span class="title">Employee Attendance</span></a></li>
+          <li><a href="add_employee.html"><span class="icon"><span class="material-icons">person_add</span></span><span class="title">Add Employee</span></a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+        <div class="topbar">
+            <div class="toggle">
+                <span class="material-icons">menu</span>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <h2>Add Employee</h2>
+            <form id="addEmployeeForm">
+                <div class="input-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Enter full name" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="birthday">Birthday</label>
+                    <input type="date" id="birthday" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="contact">Contact Number</label>
+                    <input type="tel" id="contact" placeholder="Enter contact number" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="employeeType">Employee Type</label>
+                    <select id="employeeType" required>
+                        <option value="">Select Employee Type</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Cashier">Cashier</option>
+                        <option value="Sales Attendant">Sales Attendant</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Set username" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Set password" required>
+                </div>
+
+                <button type="submit" class="submit-btn">Add Employee</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+    document.getElementById("addEmployeeForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        alert("Employee added successfully!");
+    });
+</script>
+
+</body>
+</html>

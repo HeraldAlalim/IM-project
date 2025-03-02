@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboardstyle.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Sidebar Navigation -->
+    <div class="navigation">
+      <ul>
+          <li class="active"><a href="dashboard.html"><span class="icon"><span class="material-icons">dashboard</span></span><span class="title">Dashboard</span></a></li>
+          <li><a href="sales.html"><span class="icon"><span class="material-icons">shopping_cart</span></span><span class="title">Sales</span></a></li>
+          <li><a href="inventory.html"><span class="icon"><span class="material-icons">inventory</span></span><span class="title">Inventory</span></a></li>
+          <li><a href="attendance.html"><span class="icon"><span class="material-icons">event</span></span><span class="title">Attendance</span></a></li>
+          <li><a href="employee_attendance.html"><span class="icon"><span class="material-icons">schedule</span></span><span class="title">Employee Attendance</span></a></li>
+          <li><a href="add_employee.html"><span class="icon"><span class="material-icons">person_add</span></span><span class="title">Add Employee</span></a></li>
+      </ul>
+  </div>
+
+    <!-- Main Content -->
+    <div class="main">
+        <div class="topbar">
+            <div class="toggle"><span class="material-icons">menu</span></div>
+            <div class="filter-buttons">
+                <button>All</button>
+                <button>Bike</button>
+                <button>Brake</button>
+                <button>Bike Frame</button>
+                <button>Helmet</button>
+                <button>Seat</button>
+                <button>Wheel</button>
+            </div>
+            <div class="search"><input id="searchBar" type="text" placeholder="Search..."></div>
+        </div>
+
+        <!-- Product Section -->
+        <div class="dashboard-content">
+            <div class="card">
+                <h3>Mountain Bike</h3>
+                <p>Price: 500</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="card">
+                <h3>Road Bike</h3>
+                <p>Price: 700</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="card">
+                <h3>Hybrid Bike</h3>
+                <p>Price: 600</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Floating Cart Button -->
+<button class="cart-btn" id="cartButton"><span class="material-icons">shopping_cart</span></button>
+
+<!-- Cart Popup -->
+<div class="cart-popup" id="cartPopup">
+    <div class="cart-header">
+        <h3>Shopping Cart</h3>
+        <span class="close-btn" id="closeCart">&times;</span>
+    </div>
+    <div class="cart-content">
+        <p>No items in cart.</p>
+    </div>
+</div>
+
+<script src="dashboardscript.js"></script>
+</body>
+</html>

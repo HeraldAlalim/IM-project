@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory</title>
+    <link rel="stylesheet" href="InventoryStyle.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="index.html">
+                    <span class="icon"><span class="material-icons">dashboard</span></span>
+                    <span class="title">Dashboard</span>
+                </a>
+            </li>
+            <li><a href="sales.html"><span class="icon"><span class="material-icons">shopping_cart</span></span><span class="title">Sales</span></a></li>
+          <li><a href="inventory.html"><span class="icon"><span class="material-icons">inventory</span></span><span class="title">Inventory</span></a></li>
+          <li><a href="attendance.html"><span class="icon"><span class="material-icons">event</span></span><span class="title">Attendance</span></a></li>
+          <li><a href="employee_attendance.html"><span class="icon"><span class="material-icons">schedule</span></span><span class="title">Employee Attendance</span></a></li>
+          <li><a href="add_employee.html"><span class="icon"><span class="material-icons">person_add</span></span><span class="title">Add Employee</span></a></li>
+        </ul>
+    </div>
+
+    <div class="main">
+        <div class="topbar" style="padding-top: 0; padding-bottom: 0;">
+            <div class="toggle"><span class="material-icons">menu</span></div>
+            <h2>Inventory</h2>
+        </div>
+        <div class="inventory-container">
+            <table id="inventoryTable">
+                <thead>
+                    <tr>
+                        <th>Product Brand</th>
+                        <th>Model</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Giro</td>
+                        <td>Aether MIPS</td>
+                        <td>250</td>
+                        <td>5</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Trek</td>
+                        <td>Marlin 7</td>
+                        <td>8550</td>
+                        <td>2</td>
+                        
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="2">Total </th>
+                        <th id="totalInventoryValue"></th>
+                        <th colspan="2">7</th>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <div class="add-product">
+                <h3>Add Product</h3>
+                <input type="text" id="brand" placeholder="Product Brand">
+                <input type="text" id="model" placeholder="Model">
+                <input type="number" id="price" placeholder="Price">
+                <input type="number" id="unit" placeholder="Units">
+                <button onclick="addProduct()">Add</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function calculateTotalInventoryValue() {
+        let total = 0;
+        const rows = document.querySelectorAll("#inventoryTable tbody tr");
+
+        rows.forEach(row => {
+            const price = parseFloat(row.children[2].textContent.replace('$', '')) || 0;
+            total += price;
+        });
+
+        document.getElementById("totalInventoryValue").textContent = `${total.toFixed(2)}`;
+    }
+
+    function addProduct() {
+        let brand = document.getElementById("brand").value;
+        let model = document.getElementById("model").value;
+        let price = document.getElementById("price").value;
+        let unit = document.getElementById("unit").value;
+
+        if (brand && model && price && unit) {
+            let table = document.getElementById("inventoryTable").getElementsByTagName('tbody')[0];
+            let newRow = table.insertRow();
+
+            newRow.innerHTML = `
+                <td>${brand}</td>
+                <td>${model}</td>
+                <td>$${parseFloat(price).toFixed(2)}</td>
+                <td>${parseInt(unit)}</td>
+                <td><button onclick="deleteRow(this)">Delete</button></td>
+            `;
+
+            calculateTotalInventoryValue();
+            document.getElementById("brand").value = "";
+            document.getElementById("model").value = "";
+            document.getElementById("price").value = "";
+            document.getElementById("unit").value = "";
+        } else {
+            alert("Please fill all fields.");
+        }
+    }
+
+    function deleteRow(button) {
+        let row = button.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+        calculateTotalInventoryValue();
+    }
+
+    window.onload = calculateTotalInventoryValue;
+</script>
+
+</body>
+</html>

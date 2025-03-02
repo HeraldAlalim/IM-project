@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance</title>
+    <link rel="stylesheet" href="AttendanceStyle.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <!-- Sidebar Navigation -->
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="index.html">
+                    <span class="icon"><span class="material-icons">dashboard</span></span>
+                    <span class="title">Dashboard</span>
+                </a>
+            </li>
+            <li><a href="sales.html"><span class="icon"><span class="material-icons">shopping_cart</span></span><span class="title">Sales</span></a></li>
+          <li><a href="inventory.html"><span class="icon"><span class="material-icons">inventory</span></span><span class="title">Inventory</span></a></li>
+          <li><a href="attendance.html"><span class="icon"><span class="material-icons">event</span></span><span class="title">Attendance</span></a></li>
+          <li><a href="employee_attendance.html"><span class="icon"><span class="material-icons">schedule</span></span><span class="title">Employee Attendance</span></a></li>
+          <li><a href="add_employee.html"><span class="icon"><span class="material-icons">person_add</span></span><span class="title">Add Employee</span></a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+        
+        <div class="topbar" style="padding-top: 0; padding-bottom: 0;">
+            
+            <div class="toggle"><span class="material-icons">menu</span></div>
+            <h2 class="SalesText">Sales</h2>
+        </div>
+        <div class="topbar">
+            
+            <div class="filter-buttons">
+                <button>All</button><button>Bike</button><button>Brake</button><button>Bike Frame</button><button>Helmet</button><button>Seat</button><button>Wheel</button>
+            </div>
+        </div>
+
+        <div class="attendance-container">
+            <table id="attendanceTable">
+                <thead>
+                    <tr>
+                        <th>Employee Name</th>
+                        <th>Present</th>
+                        <th>Late</th>
+                        <th>Absent</th>
+  
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>25</td>
+                        <td>2</td>
+                        <td>3</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>22</td>
+                        <td>5</td>
+                        <td>3</td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+    // Update the attendance title when a month button is clicked
+    document.querySelectorAll(".month-btn").forEach(button => {
+        button.addEventListener("click", function() {
+            document.getElementById("selectedMonth").textContent = "Employee Attendance - " + this.dataset.month;
+            document.querySelectorAll(".month-btn").forEach(btn => btn.classList.remove("active-month"));
+            this.classList.add("active-month");
+        });
+    });
+</script>
+</body>
+</html>

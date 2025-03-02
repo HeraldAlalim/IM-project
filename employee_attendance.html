@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Attendance</title>
+    <link rel="stylesheet" href="AddEmployeeStyle.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <!-- Sidebar Navigation -->
+    <div class="navigation">
+        <ul>
+            <li><a href="index.html"><span class="icon"><span class="material-icons">dashboard</span></span><span class="title">Dashboard</span></a></li>
+            <li><a href="sales.html"><span class="icon"><span class="material-icons">shopping_cart</span></span><span class="title">Sales</span></a></li>
+          <li><a href="inventory.html"><span class="icon"><span class="material-icons">inventory</span></span><span class="title">Inventory</span></a></li>
+          <li><a href="attendance.html"><span class="icon"><span class="material-icons">event</span></span><span class="title">Attendance</span></a></li>
+          <li><a href="employee_attendance.html"><span class="icon"><span class="material-icons">schedule</span></span><span class="title">Employee Attendance</span></a></li>
+          <li><a href="add_employee.html"><span class="icon"><span class="material-icons">person_add</span></span><span class="title">Add Employee</span></a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+        <div class="topbar">
+            <div class="toggle">
+                <span class="material-icons">menu</span>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <h2>Employee Attendance</h2>
+
+            <!-- Employee Attendance Form -->
+            <form id="attendanceForm">
+                <div class="input-group">
+                    <label for="employeeName">Employee Name</label>
+                    <input type="text" id="employeeName" placeholder="Enter employee name" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="attendanceDate">Date</label>
+                    <input type="date" id="attendanceDate" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="timeIn">Time In</label>
+                    <input type="time" id="timeIn" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="timeOut">Time Out</label>
+                    <input type="time" id="timeOut" required>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Attendance</button>
+            </form>
+
+            <!-- Attendance Table -->
+            <div class="attendance-container">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+    document.getElementById("attendanceForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        alert("Attendance submitted successfully!");
+    });
+</script>
+
+</body>
+</html>

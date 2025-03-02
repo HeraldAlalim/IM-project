@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales</title>
+    <link rel="stylesheet" href="SalesStyle.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="navigation">
+        <ul>
+            <li><a href="index.html"><span class="icon"><span class="material-icons">dashboard</span></span><span class="title">Dashboard</span></a></li>
+            <li><a href="sales.html"><span class="icon"><span class="material-icons">shopping_cart</span></span><span class="title">Sales</span></a></li>
+          <li><a href="inventory.html"><span class="icon"><span class="material-icons">inventory</span></span><span class="title">Inventory</span></a></li>
+          <li><a href="attendance.html"><span class="icon"><span class="material-icons">event</span></span><span class="title">Attendance</span></a></li>
+          <li><a href="employee_attendance.html"><span class="icon"><span class="material-icons">schedule</span></span><span class="title">Employee Attendance</span></a></li>
+          <li><a href="add_employee.html"><span class="icon"><span class="material-icons">person_add</span></span><span class="title">Add Employee</span></a></li>
+        </ul>
+    </div>
+    <div class="main">
+        <div class="topbar" style="padding-top: 0; padding-bottom: 0;">
+            <div class="toggle"><span class="material-icons">menu</span></div>
+            <h2>Sales</h2>
+        </div>
+        <div class="topbar">
+            <div class="filter-buttons">
+                <button>All</button><button>Bike</button><button>Brake</button><button>Bike Frame</button><button>Helmet</button><button>Seat</button><button>Wheel</button>
+            </div>
+        </div>
+        <div class="sales-table-container">
+            <table id="salesTable">
+                <thead>
+                    <tr>
+                        <th>Product Brand</th><th>Model</th><th>Sales</th><th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Giro</td><td>Aether MIPS</td><td>150</td><td>1</td></tr>
+                    <tr><td>Trek</td><td>Marlin 7</td><td>75</td><td>2</td></tr>
+                    <tr><td>Fox</td><td>Ranger Gel</td><td>200</td><td>3</td></tr>
+                    <tr><td>Specialized</td><td>Roubaix</td><td>50</td><td>5</td></tr>
+                </tbody>
+                <tfoot>
+                    <tr><th colspan="2">Total </th><th id="totalSales">0</th><th>11</th></tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    function calculateTotalSales() {
+        let total = 0;
+        const rows = document.querySelectorAll("#salesTable tbody tr");
+        rows.forEach(row => {
+            const sales = parseInt(row.children[2].textContent, 10);
+            total += sales;
+        });
+        document.getElementById("totalSales").textContent = total;
+    }
+    window.onload = calculateTotalSales;
+</script>
+</body>
+</html>
