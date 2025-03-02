@@ -17,27 +17,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Define restricted pages for each role
   const restrictions = {
-      cashier: ["inventory.html"],
-      sales: ["sales.html"],
+      cashier: ["inventory.html", "employee_attendance.html", "add_employee.html"],
+      sales: ["sales.html", "employee_attendance.html", "add_employee.html"],
   };
 
   const currentPage = window.location.pathname.split("/").pop();
 
-  // Restrict access to certain pages based on role
+  // ✅ Restrict access to certain pages based on role
   if (restrictions[userRole] && restrictions[userRole].includes(currentPage)) {
       alert("Access Denied: You do not have permission to access this page.");
       window.location.href = "dashboard.html"; // Redirect to dashboard
   }
 
-  // Hide sidebar links based on role restrictions
+  // ✅ Hide restricted sidebar links based on role
   function hideRestrictedLinks() {
-      if (userRole === "cashier") {
-          let inventoryLink = document.querySelector('a[href="inventory.html"]');
-          if (inventoryLink) inventoryLink.parentElement.style.display = "none";
-      }
-      if (userRole === "sales") {
-          let salesLink = document.querySelector('a[href="sales.html"]');
-          if (salesLink) salesLink.parentElement.style.display = "none";
+      if (restrictions[userRole]) {
+          restrictions[userRole].forEach(page => {
+              let link = document.querySelector(`a[href="${page}"]`);
+              if (link) link.parentElement.style.display = "none"; // Hide the link
+          });
       }
   }
 
