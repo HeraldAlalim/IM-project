@@ -13,17 +13,15 @@
     <!-- Sidebar Navigation -->
     <div class="navigation">
         <ul>
-            <li>
-                <a href="index.html">
-                    <span class="icon"><span class="material-icons">dashboard</span></span>
-                    <span class="title">Dashboard</span>
-                </a>
-            </li>
+            <li><a href="dashboard.html"><span class="icon"><span class="material-icons">dashboard</span></span><span class="title">Dashboard</span></a></li>
             <li><a href="sales.html"><span class="icon"><span class="material-icons">shopping_cart</span></span><span class="title">Sales</span></a></li>
-          <li><a href="inventory.html"><span class="icon"><span class="material-icons">inventory</span></span><span class="title">Inventory</span></a></li>
-          <li><a href="attendance.html"><span class="icon"><span class="material-icons">event</span></span><span class="title">Attendance</span></a></li>
-          <li><a href="employee_attendance.html"><span class="icon"><span class="material-icons">schedule</span></span><span class="title">Employee Attendance</span></a></li>
-          <li><a href="add_employee.html"><span class="icon"><span class="material-icons">person_add</span></span><span class="title">Add Employee</span></a></li>
+            <li><a href="inventory.html"><span class="icon"><span class="material-icons">inventory</span></span><span class="title">Inventory</span></a></li>
+            <li><a href="return_exchange.html"><span class="icon"><span class="material-icons">sync_alt</span></span><span class="title">Return and Exchange</span></a></li>
+            <li><a href="attendance.html"><span class="icon"><span class="material-icons">event</span></span><span class="title">Attendance</span></a></li>
+            <li><a href="employee_attendance.html"><span class="icon"><span class="material-icons">schedule</span></span><span class="title">Employee Attendance</span></a></li>
+            <li><a href="add_employee.html"><span class="icon"><span class="material-icons">person_add</span></span><span class="title">Add Employee</span></a></li>
+            <li><a href="Employee.html"><span class="icon"><span class="material-icons">people</span></span><span class="title">Employee Records</span></a></li>
+            <li><a href="logout.html"><span class="icon"><span class="material-icons">logout</span></span><span class="title">Logout</span></a></li>
         </ul>
     </div>
 
@@ -79,58 +77,8 @@
     </div>
 </div>
 
-<script src="script.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Ensure user is logged in
-        if (localStorage.getItem("loggedIn") !== "true") {
-            window.location.href = "index.html";
-        }
 
-        // Get the logged-in user's role
-        const userRole = localStorage.getItem("userRole");
-
-        // Restrict access to non-admins
-        if (userRole !== "admin") {
-            alert("Access Denied: Only admins can add employees.");
-            window.location.href = "dashboard.html"; // Redirect unauthorized users
-        }
-
-        // Handle form submission
-        document.getElementById("addEmployeeForm").addEventListener("submit", function (event) {
-            event.preventDefault();
-
-            let name = document.getElementById("name").value.trim();
-            let birthday = document.getElementById("birthday").value;
-            let contact = document.getElementById("contact").value.trim();
-            let employeeType = document.getElementById("employeeType").value;
-            let username = document.getElementById("username").value.trim();
-            let password = document.getElementById("password").value.trim();
-
-            if (!name || !birthday || !contact || !employeeType || !username || !password) {
-                alert("Please fill in all fields.");
-                return;
-            }
-
-            // Get existing employees from localStorage
-            let employees = JSON.parse(localStorage.getItem("employees")) || [];
-
-            // Check if username already exists
-            if (employees.some(emp => emp.username === username)) {
-                alert("Username already exists. Please choose a different one.");
-                return;
-            }
-
-            // Add new employee
-            employees.push({ name, birthday, contact, employeeType, username, password });
-            localStorage.setItem("employees", JSON.stringify(employees));
-
-            alert("Employee added successfully!");
-            document.getElementById("addEmployeeForm").reset(); // Reset form
-        });
-    });
-</script>
-
-
+<script src="AddEmployeeSricpt.js"></script>
+<script src="restrictAccess.js"></script>
 </body>
 </html>

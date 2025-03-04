@@ -20,8 +20,3 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
       document.getElementById("error-message").textContent = "Invalid username or password!";
   }
 });
-
-// Redirect user to login if not logged in
-if (window.location.pathname.includes("dashboard.html") && localStorage.getItem("loggedIn") !== "true") {
-  window.location.href = "index.html";
-}

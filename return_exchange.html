@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Return & Exchange</title>
+    <link rel="stylesheet" href="returnExhangeStyle.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <!-- Sidebar Navigation -->
+    <div class="navigation">
+      <ul>
+        <li><a href="dashboard.html"><span class="icon"><span class="material-icons">dashboard</span></span><span class="title">Dashboard</span></a></li>
+        <li><a href="sales.html"><span class="icon"><span class="material-icons">shopping_cart</span></span><span class="title">Sales</span></a></li>
+        <li><a href="inventory.html"><span class="icon"><span class="material-icons">inventory</span></span><span class="title">Inventory</span></a></li>
+        <li><a href="return_exchange.html"><span class="icon"><span class="material-icons">sync_alt</span></span><span class="title">Return and Exchange</span></a></li>
+        <li><a href="attendance.html"><span class="icon"><span class="material-icons">event</span></span><span class="title">Attendance</span></a></li>
+        <li><a href="employee_attendance.html"><span class="icon"><span class="material-icons">schedule</span></span><span class="title">Employee Attendance</span></a></li>
+        <li><a href="add_employee.html"><span class="icon"><span class="material-icons">person_add</span></span><span class="title">Add Employee</span></a></li>
+        <li><a href="Employee.html"><span class="icon"><span class="material-icons">people</span></span><span class="title">Employee Records</span></a></li>
+        <li><a href="logout.html"><span class="icon"><span class="material-icons">logout</span></span><span class="title">Logout</span></a></li>
+    </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+        <div class="topbar">
+            <h2>Return & Exchange</h2>
+        </div>
+
+        <div class="form-container">
+            <h2>Return & Exchange Form</h2>
+            <form id="returnExchangeForm">
+                <div class="input-group">
+                    <label for="customerName">Customer Name</label>
+                    <input type="text" id="customerName" placeholder="Enter customer name" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="productName">Product Name</label>
+                    <input type="text" id="productName" placeholder="Enter product name" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="returnReason">Reason for Return</label>
+                    <input type="text" id="returnReason" placeholder="Enter reason" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="returnDate">Return Date</label>
+                    <input type="date" id="returnDate" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="exchangeOption">Exchange or Refund?</label>
+                    <select id="exchangeOption" required>
+                        <option value="exchange">Exchange</option>
+                        <option value="refund">Refund</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+
+            <!-- Return & Exchange Records -->
+            <div class="records-container">
+                <h3>Return & Exchange Records</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Customer Name</th>
+                            <th>Product Name</th>
+                            <th>Reason</th>
+                            <th>Return Date</th>
+                            <th>Option</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recordsTable">
+                        <!-- Records will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="return_exchange.js"></script>
+<script src="restrictAccess.js"></script>
+</body>
+</html>
